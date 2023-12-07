@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Character } from './entities/character.entity';
+import { CharacterModule } from './character/character.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { Character } from './entities/character.entity';
       entities: [Character],
       synchronize: true,
     }),
+    CharacterModule,
   ],
   controllers: [AppController],
   providers: [AppService],
