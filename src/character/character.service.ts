@@ -14,7 +14,7 @@ export class CharacterService {
   async getAllCharacters() {
     const getCharacters = await this.characterRepository.find();
 
-    if (!getCharacters) {
+    if (getCharacters.length === 0) {
       return new HttpException('There are no characters', HttpStatus.NOT_FOUND);
     }
 
@@ -59,6 +59,8 @@ export class CharacterService {
     newCharacter.image = character.image
       ? character.image
       : 'https://res-console.cloudinary.com/dl9pbe0eu/media_explorer_thumbnails/bb3df6a78ee7825a90f7eb64ea45fb3f/detailed';
+
+    return this.characterRepository.save(newCharacter);
   }
 
   async deleteCharacter(id: number) {
@@ -69,7 +71,7 @@ export class CharacterService {
     });
 
     if (!searchById) {
-      return new HttpException('There are no recipes', HttpStatus.NOT_FOUND);
+      return new HttpException('This id is invalid', HttpStatus.NOT_FOUND);
     }
 
     return this.characterRepository.remove(searchById);
