@@ -8,7 +8,7 @@ export class CharacterController {
 
   @Get()
   getAllCharacters() {
-    return this.characterService.getAllCharacters;
+    return this.characterService.getAllCharacters();
   }
 
   @Get(':id')
