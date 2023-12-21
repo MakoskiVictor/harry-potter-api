@@ -58,7 +58,7 @@ export class CharacterService {
     newCharacter.house = character.house;
     newCharacter.image = character.image
       ? character.image
-      : 'https://res-console.cloudinary.com/dl9pbe0eu/media_explorer_thumbnails/bb3df6a78ee7825a90f7eb64ea45fb3f/detailed';
+      : 'https://media.gettyimages.com/id/1196083861/es/vector/simple-man-head-icon-set.jpg?s=612x612&w=0&k=20&c=8vkM7uUsx1fIofoc-_J2QS_3tN6xqtxLD--9_OEvUhU=';
 
     return this.characterRepository.save(newCharacter);
   }
